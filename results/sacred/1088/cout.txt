@@ -1,0 +1,843 @@
+[INFO 08:09:24] pymarl Running command 'my_main'
+[INFO 08:09:24] pymarl Started run with ID "1088"
+[DEBUG 08:09:24] pymarl Starting Heartbeat
+[DEBUG 08:09:24] my_main Started
+[INFO 08:09:24] my_main Experiment Parameters:
+[INFO 08:09:24] my_main 
+
+{   'a_action_size': 0,
+    'a_macro_size': 2,
+    'a_move_size': 6,
+    'action_selector': 'epsilon_greedy',
+    'agent': 'rnn',
+    'agent_output_type': 'q',
+    'batch_size': 32,
+    'batch_size_run': 1,
+    'buffer_cpu_only': True,
+    'buffer_size': 5000,
+    'checkpoint_path': '',
+    'critic_lr': 0.0005,
+    'double_q': True,
+    'env': 'sc2',
+    'env_args': {   'continuing_episode': False,
+                    'debug': False,
+                    'difficulty': '7',
+                    'game_version': None,
+                    'heuristic_ai': False,
+                    'heuristic_rest': False,
+                    'map_name': 'bane_vs_bane',
+                    'move_amount': 2,
+                    'obs_all_health': True,
+                    'obs_instead_of_state': False,
+                    'obs_last_action': False,
+                    'obs_own_health': True,
+                    'obs_pathing_grid': False,
+                    'obs_terrain_height': False,
+                    'obs_timestep_number': False,
+                    'replay_dir': '',
+                    'replay_prefix': '',
+                    'reward_death_value': 10,
+                    'reward_defeat': 0,
+                    'reward_negative_scale': 0.5,
+                    'reward_only_positive': True,
+                    'reward_scale': True,
+                    'reward_scale_rate': 20,
+                    'reward_sparse': False,
+                    'reward_win': 200,
+                    'seed': 551655061,
+                    'state_last_action': True,
+                    'state_timestep_number': False,
+                    'step_mul': 8},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'gamma': 0.99,
+    'goal_num': 4,
+    'grad_norm_clip': 10,
+    'hypernet_embed': 64,
+    'hypernet_layers': 2,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 10000,
+    'load_step': 2000387,
+    'local_results_path': 'results',
+    'log_interval': 10000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'min_horizon': 1,
+    'mixer': 'qmix',
+    'mixing_embed_dim': 32,
+    'name': 'qmix',
+    'obs_agent_id': True,
+    'obs_last_action': True,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'option_num': 4,
+    'random_walk': 2000,
+    'repeat_id': 1,
+    'rnn_hidden_dim': 64,
+    'runner': 'episode',
+    'runner_log_interval': 10000,
+    'save_model': True,
+    'save_model_interval': 2000000,
+    'save_replay': False,
+    'seed': 551655061,
+    't_max': 2050000,
+    'target_update_interval': 200,
+    'test_greedy': True,
+    'test_interval': 10000,
+    'test_nepisode': 32,
+    'use_cuda': True,
+    'use_tensorboard': False}
+
+[INFO 08:09:34] my_main Beginning training for 2050000 timesteps
+[INFO 08:09:34] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 21980 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-tiy2_d5s/
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 21980 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-tiy2_d5s/'
+[INFO 08:09:38] absl Connecting to: ws://127.0.0.1:21980/sc2api, attempt: 0, running: True
+Starting up...
+Startup Phase 1 complete
+[INFO 08:09:39] absl Connecting to: ws://127.0.0.1:21980/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:21980
+Startup Phase 3 complete. Ready for commands.
+[INFO 08:09:40] absl Connecting to: ws://127.0.0.1:21980/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:53660 accepted
+ReadyHandler: 127.0.0.1:53660 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:09:46] my_main t_env: 34 / 2050000
+[INFO 08:09:46] my_main Estimated time left: 41 minutes, 21 seconds. Time passed: 12 seconds
+[INFO 08:10:15] my_main Saving models to results/models/qmix__2021-10-16_08-09-24/34
+[INFO 08:14:41] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:19:27] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:20:03] my_main Recent Stats | t_env:      10007 | Episode:      427
+battle_won_mean:           0.0000	dead_allies_mean:         24.0000	dead_enemies_mean:        24.0000	ep_length_mean:           34.0000
+epsilon:                   1.0000	hrl policy_grad_norm:     16.3432	hrl policy_loss:           6.3886	hrl policy_q_taken_mean:   0.0090
+hrl policy_target_mean:    0.0665	hrl policy_td_error_abs:   1.3814	return_mean:              16.9903	return_std:                0.0000
+test_battle_won_mean:      0.5312	test_dead_allies_mean:    22.2188	test_dead_enemies_mean:   22.9375	test_ep_length_mean:      32.4375
+test_return_mean:         17.7975	test_return_std:           2.9052	
+[INFO 08:20:05] my_main t_env: 10049 / 2050000
+[INFO 08:20:05] my_main Estimated time left: 1 days, 11 hours, 2 minutes, 32 seconds. Time passed: 10 minutes, 31 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:24:09] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:28:18] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:31:37] my_main t_env: 20050 / 2050000
+[INFO 08:31:37] my_main Estimated time left: 1 days, 15 hours, 1 minutes, 16 seconds. Time passed: 22 minutes, 3 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:32:00] my_main Recent Stats | t_env:      20050 | Episode:      957
+battle_won_mean:           0.4995	dead_allies_mean:         22.6361	dead_enemies_mean:        23.8281	ep_length_mean:           25.4533
+epsilon:                   0.6201	hrl policy_grad_norm:     18.7058	hrl policy_loss:           4.8739	hrl policy_q_taken_mean:   0.0811
+hrl policy_target_mean:    0.1161	hrl policy_td_error_abs:   1.1704	return_mean:              18.3970	return_std:                1.1422
+test_battle_won_mean:      0.5521	test_dead_allies_mean:    21.7708	test_dead_enemies_mean:   22.8646	test_ep_length_mean:      24.5833
+test_return_mean:         17.8324	test_return_std:           2.7572	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:32:58] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:37:35] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:41:49] my_main t_env: 30055 / 2050000
+[INFO 08:41:49] my_main Estimated time left: 1 days, 10 hours, 18 minutes, 19 seconds. Time passed: 32 minutes, 15 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:42:21] my_main Recent Stats | t_env:      30055 | Episode:     1360
+battle_won_mean:           0.5757	dead_allies_mean:         21.8561	dead_enemies_mean:        23.7383	ep_length_mean:           25.2965
+epsilon:                   0.4292	hrl policy_grad_norm:     24.6556	hrl policy_loss:           4.0239	hrl policy_q_taken_mean:   0.1848
+hrl policy_target_mean:    0.2130	hrl policy_td_error_abs:   1.1159	return_mean:              18.5775	return_std:                1.3394
+test_battle_won_mean:      0.6016	test_dead_allies_mean:    20.6562	test_dead_enemies_mean:   22.8594	test_ep_length_mean:      29.2500
+test_return_mean:         17.9902	test_return_std:           2.8408	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:43:26] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:49:21] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:51:38] my_main t_env: 40126 / 2050000
+[INFO 08:51:38] my_main Estimated time left: 1 days, 8 hours, 39 minutes, 32 seconds. Time passed: 42 minutes, 4 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:52:46] my_main Recent Stats | t_env:      40126 | Episode:     1661
+battle_won_mean:           0.6266	dead_allies_mean:         20.9088	dead_enemies_mean:        23.6850	ep_length_mean:           26.9289
+epsilon:                   0.2414	hrl policy_grad_norm:     31.5992	hrl policy_loss:           3.4203	hrl policy_q_taken_mean:   0.2709
+hrl policy_target_mean:    0.2957	hrl policy_td_error_abs:   1.0426	return_mean:              18.7028	return_std:                1.4670
+test_battle_won_mean:      0.5562	test_dead_allies_mean:    20.7125	test_dead_enemies_mean:   22.1063	test_ep_length_mean:      47.9625
+test_return_mean:         17.3839	test_return_std:           3.2566	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 08:58:53] my_main t_env: 50171 / 2050000
+[INFO 08:58:53] my_main Estimated time left: 1 days, 1 minutes, 52 seconds. Time passed: 49 minutes, 18 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:00:01] my_main Recent Stats | t_env:      50171 | Episode:     1791
+battle_won_mean:           0.7236	dead_allies_mean:         20.2072	dead_enemies_mean:        23.1388	ep_length_mean:           35.5828
+epsilon:                   0.0506	hrl policy_grad_norm:     37.8899	hrl policy_loss:           3.1003	hrl policy_q_taken_mean:   0.3298
+hrl policy_target_mean:    0.3547	hrl policy_td_error_abs:   1.0273	return_mean:              18.6474	return_std:                2.2928
+test_battle_won_mean:      0.4688	test_dead_allies_mean:    20.7500	test_dead_enemies_mean:   21.2000	test_ep_length_mean:      64.4500
+test_return_mean:         16.5321	test_return_std:           3.4433	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:00:34] my_main Updated target network
+DataHandler: unable to parse websocket frame.
+RequestQuit command received.
+CloseHandler: 127.0.0.1:53660 disconnected
+Closing Application...
+ResponseThread: No connection, dropping the response.
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:02:07] absl Shutdown gracefully.
+[INFO 09:02:07] absl Shutdown with return code: -15
+[INFO 09:02:07] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 21825 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-qu_ykz_7/
+[INFO 09:02:11] absl Connecting to: ws://127.0.0.1:21825/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 21825 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-qu_ykz_7/'
+Starting up...
+Startup Phase 1 complete
+[INFO 09:02:12] absl Connecting to: ws://127.0.0.1:21825/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:21825
+Startup Phase 3 complete. Ready for commands.
+[INFO 09:02:13] absl Connecting to: ws://127.0.0.1:21825/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:32768 accepted
+ReadyHandler: 127.0.0.1:32768 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:06:23] my_main t_env: 60284 / 2050000
+[INFO 09:06:23] my_main Estimated time left: 1 days, 35 minutes, 41 seconds. Time passed: 56 minutes, 48 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:08:31] my_main Recent Stats | t_env:      60284 | Episode:     1895
+battle_won_mean:           0.6267	dead_allies_mean:         20.0685	dead_enemies_mean:        22.3835	ep_length_mean:           50.3400
+epsilon:                   0.0500	hrl policy_grad_norm:     59.6772	hrl policy_loss:           2.3337	hrl policy_q_taken_mean:   0.4501
+hrl policy_target_mean:    0.4705	hrl policy_td_error_abs:   0.9641	return_mean:              17.8855	return_std:                2.7651
+test_battle_won_mean:      0.3500	test_dead_allies_mean:    19.9188	test_dead_enemies_mean:   19.7812	test_ep_length_mean:     101.1562
+test_return_mean:         15.2242	test_return_std:           3.2015	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:14:46] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:14:54] my_main t_env: 70305 / 2050000
+[INFO 09:14:54] my_main Estimated time left: 1 days, 4 hours, 3 minutes, 17 seconds. Time passed: 1 hours, 5 minutes, 20 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:15:57] my_main Recent Stats | t_env:      70305 | Episode:     2003
+battle_won_mean:           0.5464	dead_allies_mean:         20.1046	dead_enemies_mean:        21.8608	ep_length_mean:           65.1163
+epsilon:                   0.0500	hrl policy_grad_norm:     72.1154	hrl policy_loss:           2.0306	hrl policy_q_taken_mean:   0.5395
+hrl policy_target_mean:    0.5558	hrl policy_td_error_abs:   0.9684	return_mean:              17.3217	return_std:                3.0752
+test_battle_won_mean:      0.3438	test_dead_allies_mean:    19.7687	test_dead_enemies_mean:   19.5063	test_ep_length_mean:     113.4000
+test_return_mean:         15.0397	test_return_std:           3.5606	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:23:36] my_main t_env: 80325 / 2050000
+[INFO 09:23:36] my_main Estimated time left: 1 days, 4 hours, 28 minutes, 37 seconds. Time passed: 1 hours, 14 minutes, 1 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:24:29] my_main Recent Stats | t_env:      80325 | Episode:     2142
+battle_won_mean:           0.4576	dead_allies_mean:         20.4748	dead_enemies_mean:        21.5008	ep_length_mean:           74.5683
+epsilon:                   0.0500	hrl policy_grad_norm:     84.5569	hrl policy_loss:           1.9017	hrl policy_q_taken_mean:   0.5678
+hrl policy_target_mean:    0.5759	hrl policy_td_error_abs:   0.9175	return_mean:              16.8171	return_std:                3.3314
+test_battle_won_mean:      0.2750	test_dead_allies_mean:    20.6812	test_dead_enemies_mean:   19.0875	test_ep_length_mean:     120.5500
+test_return_mean:         14.5583	test_return_std:           3.7444	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:28:01] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:30:46] my_main t_env: 90472 / 2050000
+[INFO 09:30:46] my_main Estimated time left: 23 hours, 4 minutes, 13 seconds. Time passed: 1 hours, 21 minutes, 11 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:32:20] my_main Recent Stats | t_env:      90472 | Episode:     2237
+battle_won_mean:           0.3462	dead_allies_mean:         21.3961	dead_enemies_mean:        20.9201	ep_length_mean:           89.2387
+epsilon:                   0.0500	hrl policy_grad_norm:     88.2347	hrl policy_loss:           1.8656	hrl policy_q_taken_mean:   0.6031
+hrl policy_target_mean:    0.6122	hrl policy_td_error_abs:   0.9129	return_mean:              16.1021	return_std:                3.6823
+test_battle_won_mean:      0.2313	test_dead_allies_mean:    20.8188	test_dead_enemies_mean:   19.0312	test_ep_length_mean:     128.6500
+test_return_mean:         14.4207	test_return_std:           3.5570	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:37:55] my_main t_env: 100527 / 2050000
+[INFO 09:37:55] my_main Estimated time left: 23 hours, 8 minutes, 16 seconds. Time passed: 1 hours, 28 minutes, 21 seconds
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:32768 disconnected
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:38:35] absl Shutdown gracefully.
+[INFO 09:38:35] absl Shutdown with return code: -15
+[INFO 09:38:35] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 15878 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-9ymjokzh/
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+[INFO 09:38:40] absl Connecting to: ws://127.0.0.1:15878/sc2api, attempt: 0, running: True
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 15878 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-9ymjokzh/'
+Starting up...
+Startup Phase 1 complete
+[INFO 09:38:41] absl Connecting to: ws://127.0.0.1:15878/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:15878
+Startup Phase 3 complete. Ready for commands.
+[INFO 09:38:42] absl Connecting to: ws://127.0.0.1:15878/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:33582 accepted
+ReadyHandler: 127.0.0.1:33582 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:40:26] my_main Recent Stats | t_env:     100527 | Episode:     2312
+battle_won_mean:           0.2866	dead_allies_mean:         21.6150	dead_enemies_mean:        20.4690	ep_length_mean:          100.5982
+epsilon:                   0.0500	hrl policy_grad_norm:     86.1305	hrl policy_loss:           1.6980	hrl policy_q_taken_mean:   0.5907
+hrl policy_target_mean:    0.5914	hrl policy_td_error_abs:   0.8385	return_mean:              15.6284	return_std:                3.6533
+test_battle_won_mean:      0.2188	test_dead_allies_mean:    20.0812	test_dead_enemies_mean:   18.2437	test_ep_length_mean:     143.9500
+test_return_mean:         13.8820	test_return_std:           3.5243	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:45:50] my_main t_env: 110677 / 2050000
+[INFO 09:45:50] my_main Estimated time left: 1 days, 1 hours, 12 minutes, 27 seconds. Time passed: 1 hours, 36 minutes, 16 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:47:52] my_main Recent Stats | t_env:     110677 | Episode:     2374
+battle_won_mean:           0.2367	dead_allies_mean:         21.6178	dead_enemies_mean:        19.8839	ep_length_mean:          113.8920
+epsilon:                   0.0500	hrl policy_grad_norm:     77.3335	hrl policy_loss:           1.5477	hrl policy_q_taken_mean:   0.5782
+hrl policy_target_mean:    0.5665	hrl policy_td_error_abs:   0.7857	return_mean:              15.0669	return_std:                3.7174
+test_battle_won_mean:      0.2313	test_dead_allies_mean:    20.6000	test_dead_enemies_mean:   18.5312	test_ep_length_mean:     137.7000
+test_return_mean:         14.1240	test_return_std:           3.8725	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:49:51] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:56:18] my_main t_env: 120694 / 2050000
+[INFO 09:56:18] my_main Estimated time left: 1 days, 9 hours, 36 minutes, 47 seconds. Time passed: 1 hours, 46 minutes, 44 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 09:57:47] my_main Recent Stats | t_env:     120694 | Episode:     2480
+battle_won_mean:           0.2567	dead_allies_mean:         21.5054	dead_enemies_mean:        19.9746	ep_length_mean:          114.2346
+epsilon:                   0.0500	hrl policy_grad_norm:     65.6427	hrl policy_loss:           1.3594	hrl policy_q_taken_mean:   0.5566
+hrl policy_target_mean:    0.5478	hrl policy_td_error_abs:   0.7004	return_mean:              15.1876	return_std:                3.7599
+test_battle_won_mean:      0.1750	test_dead_allies_mean:    20.8188	test_dead_enemies_mean:   18.5688	test_ep_length_mean:     136.9563
+test_return_mean:         13.9874	test_return_std:           3.5167	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:07:02] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:10:41] my_main t_env: 130843 / 2050000
+[INFO 10:10:41] my_main Estimated time left: 1 days, 21 hours, 19 minutes, 34 seconds. Time passed: 2 hours, 1 minutes, 7 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:12:08] my_main Recent Stats | t_env:     130843 | Episode:     2650
+battle_won_mean:           0.2671	dead_allies_mean:         21.6567	dead_enemies_mean:        20.0173	ep_length_mean:          111.7574
+epsilon:                   0.0500	hrl policy_grad_norm:     53.7953	hrl policy_loss:           1.2441	hrl policy_q_taken_mean:   0.5638
+hrl policy_target_mean:    0.5628	hrl policy_td_error_abs:   0.6776	return_mean:              15.2579	return_std:                3.8002
+test_battle_won_mean:      0.1813	test_dead_allies_mean:    20.7125	test_dead_enemies_mean:   18.9562	test_ep_length_mean:     138.7063
+test_return_mean:         14.2852	test_return_std:           3.2203	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:23:56] my_main t_env: 140917 / 2050000
+[INFO 10:23:56] my_main Estimated time left: 1 days, 17 hours, 49 minutes, 24 seconds. Time passed: 2 hours, 14 minutes, 22 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:25:19] my_main Recent Stats | t_env:     140917 | Episode:     2797
+battle_won_mean:           0.2927	dead_allies_mean:         21.7387	dead_enemies_mean:        20.2859	ep_length_mean:          104.1014
+epsilon:                   0.0500	hrl policy_grad_norm:     50.2052	hrl policy_loss:           1.1473	hrl policy_q_taken_mean:   0.5304
+hrl policy_target_mean:    0.5287	hrl policy_td_error_abs:   0.6352	return_mean:              15.5167	return_std:                3.7002
+test_battle_won_mean:      0.2188	test_dead_allies_mean:    20.6500	test_dead_enemies_mean:   19.5187	test_ep_length_mean:     121.9938
+test_return_mean:         14.7350	test_return_std:           3.0400	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:25:41] my_main Updated target network
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:33582 disconnected
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:32:59] absl Shutdown gracefully.
+[INFO 10:32:59] absl Shutdown with return code: -15
+[INFO 10:32:59] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 22649 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-f_gqyb64/
+[INFO 10:33:06] absl Connecting to: ws://127.0.0.1:22649/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 22649 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-f_gqyb64/'
+Starting up...
+Startup Phase 1 complete
+[INFO 10:33:07] absl Connecting to: ws://127.0.0.1:22649/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:22649
+Startup Phase 3 complete. Ready for commands.
+[INFO 10:33:08] absl Connecting to: ws://127.0.0.1:22649/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:59256 accepted
+ReadyHandler: 127.0.0.1:59256 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:36:12] my_main t_env: 150934 / 2050000
+[INFO 10:36:12] my_main Estimated time left: 1 days, 14 hours, 47 minutes, 7 seconds. Time passed: 2 hours, 26 minutes, 38 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:37:26] my_main Recent Stats | t_env:     150934 | Episode:     2932
+battle_won_mean:           0.3442	dead_allies_mean:         21.8732	dead_enemies_mean:        20.9307	ep_length_mean:           92.1281
+epsilon:                   0.0500	hrl policy_grad_norm:     47.3713	hrl policy_loss:           1.1086	hrl policy_q_taken_mean:   0.5191
+hrl policy_target_mean:    0.5169	hrl policy_td_error_abs:   0.6258	return_mean:              16.1118	return_std:                3.4863
+test_battle_won_mean:      0.2812	test_dead_allies_mean:    21.5063	test_dead_enemies_mean:   21.1313	test_ep_length_mean:      99.6687
+test_return_mean:         15.9825	test_return_std:           2.7914	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:42:40] my_main Updated target network
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:48:01] my_main t_env: 160938 / 2050000
+[INFO 10:48:01] my_main Estimated time left: 1 days, 13 hours, 9 minutes, 44 seconds. Time passed: 2 hours, 38 minutes, 27 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:50:28] my_main Recent Stats | t_env:     160938 | Episode:     3063
+battle_won_mean:           0.3910	dead_allies_mean:         22.2240	dead_enemies_mean:        21.7951	ep_length_mean:           74.6594
+epsilon:                   0.0500	hrl policy_grad_norm:     35.2605	hrl policy_loss:           0.8644	hrl policy_q_taken_mean:   0.5173
+hrl policy_target_mean:    0.5222	hrl policy_td_error_abs:   0.5576	return_mean:              16.8144	return_std:                3.2572
+test_battle_won_mean:      0.2875	test_dead_allies_mean:    21.4813	test_dead_enemies_mean:   21.0500	test_ep_length_mean:      94.4812
+test_return_mean:         15.9108	test_return_std:           2.8436	
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 11:00:21] my_main t_env: 170964 / 2050000
+[INFO 11:00:21] my_main Estimated time left: 1 days, 14 hours, 32 minutes, 30 seconds. Time passed: 2 hours, 50 minutes, 47 seconds
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+/home/zpp/graduation_design/mahrl_0723/mahrl_0723/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 11:02:56] my_main Recent Stats | t_env:     170964 | Episode:     3175
+battle_won_mean:           0.3330	dead_allies_mean:         22.4757	dead_enemies_mean:        21.4289	ep_length_mean:           73.6630
+epsilon:                   0.0500	hrl policy_grad_norm:     42.1909	hrl policy_loss:           0.9183	hrl policy_q_taken_mean:   0.5574
+hrl policy_target_mean:    0.5575	hrl policy_td_error_abs:   0.5847	return_mean:              16.3819	return_std:                3.2898
+test_battle_won_mean:      0.2625	test_dead_allies_mean:    21.1250	test_dead_enemies_mean:   19.9562	test_ep_length_mean:     107.8938
+test_return_mean:         15.0446	test_return_std:           3.1403	
